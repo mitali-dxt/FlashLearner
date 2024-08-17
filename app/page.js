@@ -1,9 +1,19 @@
 'use client'
-import {SignedIn, SignedOut, UserButton} from "@clerk/nextjs";
+import {SignedIn, SignedOut, UserButton, useAuth} from "@clerk/nextjs";
+import {useRouter} from "next/navigation";
 import {Box, Button, Container, AppBar, Toolbar, Typography, Grid} from "@mui/material";
 import Head from "next/head";
 
 export default function Home() {
+  const { isSignedIn } = useAuth();
+  const router = useRouter();
+  const handleSubmit = () => {
+    if (isSignedIn) {
+      router.push("/generate");
+    } else {
+      router.push("/sign-up");
+    }
+  };
   return (
     <Container maxWidth="100vh">
       <Head>
@@ -32,7 +42,7 @@ export default function Home() {
           {' '}
           Create FlashCard from your text
         </Typography>
-        <Button variant="contained" color="primary" sx={{mt:2}}>Get Started</Button>
+        <Button variant="contained" color="primary" sx={{mt:2}} onClick={handleSubmit}>Get Started</Button>
       </Box>
 
       <Box sx={{my: 6}}>

@@ -1,5 +1,4 @@
-import Image from "next/image";
-import getStripe from "@/utils/get-stripe";
+'use client'
 import {SignedIn, SignedOut, UserButton} from "@clerk/nextjs";
 import {Box, Button, Container, AppBar, Toolbar, Typography, Grid} from "@mui/material";
 import Head from "next/head";
@@ -75,7 +74,7 @@ export default function Home() {
               {' '}
              Acess to basic features and limited flashcards
             </Typography>
-            <Button variant="contained" color="primary" sx={{mt:2}}>Get Started</Button>
+            <Button variant="contained" color="primary" sx={{mt:2}}>Choose Basic</Button>
             </Box>
             </Grid>
             <Grid item xs={12} md={4}>
@@ -86,7 +85,7 @@ export default function Home() {
               {' '}
              Unlimited flashcards and premium features
             </Typography>
-            <Button variant="contained" color="primary" sx={{mt:2}}>Get Started</Button>
+            <Button variant="contained" color="primary" sx={{mt:2}}>Choose Pro</Button>
             </Box>
             </Grid>
            

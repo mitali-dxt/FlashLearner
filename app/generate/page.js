@@ -20,7 +20,8 @@ import {
   CardActionArea,
   Paper,
 } from '@mui/material';
-import { collection, doc, getFirestore, writeBatch } from 'firebase/firestore'; // Updated imports
+import { collection, doc, getFirestore, writeBatch, getDoc} from 'firebase/firestore'; // Updated imports
+import {db} from '../../firebase'; // Updated imports
 
 export default function Generate() {
   const router = useRouter();
@@ -32,28 +33,15 @@ export default function Generate() {
   const [open, setOpen] = useState(false);
 
   const handleSubmit = async () => {
-    if (!text.trim()) {
-      alert('Please enter some text to generate flashcards.');
-      return;
-    }
-
-    try {
-      const response = await fetch('/api/generate', {
+    fetch('api/generate', {
         method: 'POST',
-        body: JSON.stringify({ text }), // Pass the data as JSON
-        headers: { 'Content-Type': 'application/json' }, // Ensure content-type is set
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to generate flashcards');
-      }
-
-      const data = await response.json();
-      setFlashcards(data);
-    } catch (error) {
-      console.error('Error generating flashcards:', error);
-      alert('An error occurred while generating flashcards. Please try again.');
-    }
+        body: text,
+        })
+        .then((response) => response.json())
+        .then((data) => setFlashcards(data))
+        .catch((error) => {
+            console.error('Error:', error);
+    })
   };
 
   const handleCardClick = (id) => {
@@ -67,25 +55,38 @@ export default function Generate() {
   const handleClose = () => setOpen(false);
 
   const saveFlashcards = async () => {
-    const db = getFirestore(); // Initialize Firestore
-    const colRef = collection(db, 'users', user.id, name); // Updated path
+    if(!name){
+        alert('Please enter a name for your flashcard set.');
+        return;
+    }
+    const batch=writeBatch(db);
+    const userDocRef=doc(collection(db,'users'),user.id);
+    const docSnap = await getDoc(userDocRef);
+    if(docSnap.exists()){
+        const collections= docSnap.data().flashcards || [];
+        if(collections.find((f)=>f.name===name)){
+            alert('You already have a collection with this name. Please choose a different name.');
+            return;
+        }
+        else{
+            collections.push(name);
+            batch.set(userDocRef,{flashcards:collections},{merge:true});
+        }
+    }
+    else{
+        batch.set(userDocRef,{flashcards:[name]});
+    }
 
-    const batch = writeBatch(db); // Create batch
-
-    flashcards.forEach((flashcard) => {
-      const cardDocRef = doc(colRef); // Generate a new document reference
-      batch.set(cardDocRef, flashcard); // Add flashcard to batch
+  const colRef=collection(userDocRef,name);
+    flashcards.forEach((flashcard)=>{
+        const cardDocRef=doc(colRef);
+        batch.set(cardDocRef,flashcard);
     });
 
-    try {
-      await batch.commit(); // Commit batch
-      handleClose();
-      router.push('/flashcards');
-    } catch (error) {
-      console.error('Error saving flashcards:', error);
-      alert('Failed to save flashcards.');
-    }
-  };
+    await batch.commit();
+    handleClose();
+    router.push('/flashcards');
+};
 
   return (
     <Container maxWidth="md">
@@ -202,4 +203,4 @@ export default function Generate() {
       </Dialog>
     </Container>
   );
-}
+};

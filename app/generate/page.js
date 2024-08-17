@@ -69,12 +69,12 @@ export default function Generate() {
             return;
         }
         else{
-            collections.push(name);
+            collections.push({name});
             batch.set(userDocRef,{flashcards:collections},{merge:true});
         }
     }
     else{
-        batch.set(userDocRef,{flashcards:[name]});
+        batch.set(userDocRef,{flashcards:[{name}]});
     }
 
   const colRef=collection(userDocRef,name);

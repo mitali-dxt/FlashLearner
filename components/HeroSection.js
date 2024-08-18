@@ -53,7 +53,6 @@ const HeroSection = () => {
         <Typography 
           variant="h7"
           sx={{ 
-
             textAlign: 'center',
             mx: 'auto', 
             mt: 5,

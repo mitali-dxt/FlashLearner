@@ -2,11 +2,11 @@ import { Box, Grid, Typography } from "@mui/material";
 
 export default function Features() {
   return (
-    <Box sx={{ my: 10}} height="100vh">
-      <Typography variant="h4" component="h2" gutterBottom textAlign="center" mb="50px" sx={{ color: 'white' }}>
+    <Box sx={{ my: 10, textAlign: 'center' }}>
+      <Typography variant="h4" component="h2" gutterBottom mb="50px" sx={{ color: 'white' }}>
         Features
       </Typography>
-      <Grid container spacing={4}>
+      <Grid container spacing={4} justifyContent="center" padding={6}>
         <Grid item xs={12} md={4}>
           <Box
             sx={{
@@ -19,8 +19,8 @@ export default function Features() {
               transition: 'all 0.2s',
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'flex-start',
-              textAlign: 'left',
+              alignItems: 'center', // Center items horizontally
+              textAlign: 'center',
               height: '100%',
               minHeight: '200px',
               '&:hover': {
@@ -29,7 +29,7 @@ export default function Features() {
               },
             }}
           >
-            <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2 }}>
               <img src="icon.png" alt="icon" style={{ marginRight: 8, width: 24, height: 24 }} />
               <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: 'white' }}>
                 Easy Text Input
@@ -53,8 +53,8 @@ export default function Features() {
               transition: 'all 0.2s',
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'flex-start',
-              textAlign: 'left',
+              alignItems: 'center', // Center items horizontally
+              textAlign: 'center',
               height: '100%',
               minHeight: '200px',
               '&:hover': {
@@ -63,7 +63,7 @@ export default function Features() {
               },
             }}
           >
-            <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2 }}>
               <img src="icon.png" alt="icon" style={{ marginRight: 8, width: 24, height: 24 }} />
               <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: 'white' }}>
                 Customizable Options
@@ -87,8 +87,8 @@ export default function Features() {
               transition: 'all 0.2s',
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'flex-start',
-              textAlign: 'left',
+              alignItems: 'center', // Center items horizontally
+              textAlign: 'center',
               height: '100%',
               minHeight: '200px',
               '&:hover': {
@@ -97,7 +97,7 @@ export default function Features() {
               },
             }}
           >
-            <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2 }}>
               <img src="icon.png" alt="icon" style={{ marginRight: 8, width: 24, height: 24 }} />
               <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: 'white' }}>
                 Accessible Anywhere

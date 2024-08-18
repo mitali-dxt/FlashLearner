@@ -1,22 +1,11 @@
 import {AppBar, Container, Toolbar, Button, Typography,Box} from '@mui/material';
 import Link from 'next/link';
 import {SignUp} from '@clerk/nextjs';
+import Navbar from '@/components/Navbar';
 
 export default function SignUpPage() {
-    return <Container maxWidth="100vw">
-        <AppBar position="static" >
-            <Toolbar>
-            <Typography variant="h6" sx={{flexGrow:1}}>
-                FlashCard Saas
-            </Typography>
-            <Button color="inherit">
-                <Link href="/sign-in" passHref>Login</Link>
-            </Button>
-            <Button color="inherit">
-                <Link href="/sign-up" passHref>Signup</Link>
-            </Button>
-            </Toolbar>
-        </AppBar>
+    return <Container maxWidth="100vw" >
+        <Navbar />
 
         <Box
         display="flex"

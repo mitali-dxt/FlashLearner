@@ -49,20 +49,21 @@ const HeroSection = () => {
           </Typography>
         </Box>
 
-        {/* Subheader Text */}
-        <Typography 
-          variant="h7"
-          sx={{ 
-            textAlign: 'center',
-            mx: 'auto', 
-            mt: 5,
-            fontSize: { xs: 'sm', md: 'md' },
-            lineHeight: { xs: '2.5rem', md: '5rem' } // Smaller size for the subheader
-          }}
-        >
-          Meet FlashLearner, the new standard for learning. Fun, fast and ads
-          are thrown right out the window. Try it out!
-        </Typography>
+         {/* Subheader Text */}
+         <Box sx={{ maxWidth: '600px', mx: 'auto' }}> {/* Control the width of the subheader */}
+          <Typography 
+            variant="h7"
+            sx={{ 
+              textAlign: 'center',
+              fontSize: { xs: 'sm', md: 'md' },
+              fontStyle: 'italic',
+              lineHeight: { xs: '1rem', md: '2rem' } // Smaller size for the subheader
+            }}
+          >
+            Meet FlashLearner, the new standard for learning. Fun, fast and ads
+            are thrown right out the window. Try it out!
+          </Typography>
+        </Box>
 
         {/* Get Started Button */}
         <Box sx={{ mt: 4 }}>

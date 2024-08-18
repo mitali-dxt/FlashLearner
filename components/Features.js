@@ -24,7 +24,7 @@ export default function Features() {
               textAlign: 'left',
               height: '100%',
               minHeight: '250px',
-              width: '100%', // Full width of grid item
+              width: '100%', 
               mx: 'auto',
               boxSizing: 'border-box',
               '&:hover': {
@@ -63,7 +63,7 @@ export default function Features() {
               textAlign: 'left',
               height: '100%',
               minHeight: '250px',
-              width: '100%', // Full width of grid item
+              width: '100%', 
               mx: 'auto',
               boxSizing: 'border-box',
               '&:hover': {
@@ -102,7 +102,7 @@ export default function Features() {
               textAlign: 'left',
               height: '100%',
               minHeight: '250px',
-              width: '100%', // Full width of grid item
+              width: '100%', 
               mx: 'auto',
               boxSizing: 'border-box',
               '&:hover': {

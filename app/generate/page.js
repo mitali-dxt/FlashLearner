@@ -15,7 +15,7 @@ export default function Generate() {
   const [flipped, setFlipped] = useState(false);
   const [text, setText] = useState('');
   const [flashcards, setFlashcards] = useState([]);
-  const [currentCardIndex, setCurrentCardIndex] = useState(0); // Track the current flashcard index
+  const [currentCardIndex, setCurrentCardIndex] = useState(0); 
   const [name, setName] = useState('');
   const [open, setOpen] = useState(false);
 
@@ -38,14 +38,14 @@ export default function Generate() {
   const handleNext = () => {
     if (currentCardIndex < flashcards.length - 1) {
       setCurrentCardIndex(currentCardIndex + 1);
-      setFlipped(false); // Reset flip when moving to the next card
+      setFlipped(false); 
     }
   };
 
   const handlePrev = () => {
     if (currentCardIndex > 0) {
       setCurrentCardIndex(currentCardIndex - 1);
-      setFlipped(false); // Reset flip when moving to the previous card
+      setFlipped(false); 
     }
   };
 
@@ -96,9 +96,9 @@ export default function Generate() {
           borderRadius: '20%',
           background: 'linear-gradient(to top, black, rgb(190, 18, 60))',
           boxShadow: 3,
-          zIndex: 0, // Ensure it is behind other content
-          filter: 'blur(70px)', // Apply blur effect
-          opacity: 0.1, // Adjust opacity for the glass effect
+          zIndex: 0, 
+          filter: 'blur(70px)', 
+          opacity: 0.1, 
         }}
       />
       <Box
@@ -179,9 +179,9 @@ export default function Generate() {
               fontWeight="bold"
               align="center"
               sx={{
-                fontStyle: 'italic', // Makes text italicized
-                mb: 4, // Adds space below the text
-                color: 'white', // Use the theme's primary text color
+                fontStyle: 'italic', 
+                mb: 4, 
+                color: 'white', 
               }}
             >
               Here are some flashcards we generated for you. 
@@ -191,7 +191,6 @@ export default function Generate() {
             {/* Flashcard Display */}
             {flashcards.length > 0 && (
         <Box sx={{ mt: 4, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          {/* Flashcard Display */}
           <Box sx={{ position: 'relative', width: '70%', maxWidth: '500px' }}>
             {/* Navigation Arrows */}
             <IconButton
@@ -364,29 +363,29 @@ export default function Generate() {
           </Box>
         </>
       )}
-             {/* Dialog for saving flashcards */}
+      {/* Dialog for saving flashcards */}
       <Dialog open={open} onClose={handleClose} maxWidth="sm" fullWidth borderRadius="100px">
         <DialogTitle
           sx={{
-            backgroundColor: 'rgb(190, 18, 60)', // Background color for title
-            color: 'white', // Text color for title
-            fontWeight: 600, // Bold title
+            backgroundColor: 'rgb(190, 18, 60)', 
+            color: 'white', 
+            fontWeight: 600, 
           }}
         >
           Save Flashcards
         </DialogTitle>
         <DialogContent
           sx={{
-            backgroundColor: 'rgba(0, 0, 0, 0.1)', // Light background color
-            padding: 3, // Padding around content
+            backgroundColor: 'rgba(0, 0, 0, 0.1)', 
+            padding: 3, 
           }}
         >
           <DialogContentText
             sx={{
               marginTop: 2,
-              marginBottom: 2, // Space below text
-              color: 'text.primary', // Text color
-              fontSize: '16px', // Font size
+              marginBottom: 2, 
+              color: 'text.primary', 
+              fontSize: '16px', 
             }}
           >
             Enter a name for your flashcard set:
@@ -401,14 +400,14 @@ export default function Generate() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             sx={{
-              marginTop: 1, // Space above the input
-              borderRadius: 2, // Rounded corners
+              marginTop: 1,
+              borderRadius: 2, 
             }}
           />
         </DialogContent>
         <DialogActions
           sx={{
-            backgroundColor: 'rgba(0, 0, 0, 0.1)', // Light background color for actions
+            backgroundColor: 'rgba(0, 0, 0, 0.1)',
           }}
         >
           <Button onClick={handleClose} color="primary">

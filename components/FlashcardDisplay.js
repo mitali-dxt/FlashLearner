@@ -40,8 +40,8 @@ return (
                             '&:hover': {
                                 boxShadow: '0 6px 12px rgba(0, 0, 0, 0.2)',
                             },
-                            maxWidth: 300, // Adjust the maximum width of the cards
-                            mx: 'auto', // Center the card horizontally
+                            maxWidth: 300, 
+                            mx: 'auto', 
                         }}
                     >
                         <CardActionArea onClick={() => handleCardClick(flashcard.name)}>
@@ -53,7 +53,7 @@ return (
                                     justifyContent: 'center',
                                     height: '100px',
                                     backgroundColor: '#f5f5f5',
-                                    p: 2, // Add padding inside the card
+                                    p: 2, 
                                 }}
                             >
                                 <Typography variant="h6" sx={{ color: '#000', fontWeight: 500 }}>

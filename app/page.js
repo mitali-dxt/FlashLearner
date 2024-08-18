@@ -15,7 +15,7 @@ export default function Home() {
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <Head>
-                <title>FlashCard Saas</title>
+                <title>FlashLearner</title>
                 <meta name="description" content="Create FlashCards from your text" />
             </Head>
             <Navbar />
@@ -45,7 +45,7 @@ export default function Home() {
                     position: 'absolute',
                     top: 0,
                     left: 0,
-                    width: '50vw', // Adjust size for responsiveness
+                    width: '50vw',
                     height: '50vh',
                     borderRadius: '20%',
                     background: 'linear-gradient(to top, black, rgb(190, 18, 60))',
@@ -60,7 +60,7 @@ export default function Home() {
                     position: 'absolute',
                     bottom: 0,
                     right: 0,
-                    width: '50vw', // Adjust size for responsiveness
+                    width: '50vw', 
                     height: '50vh',
                     borderRadius: '20%',
                     background: 'linear-gradient(to top, black, rgb(190, 18, 60))',
@@ -75,7 +75,7 @@ export default function Home() {
                     position: 'absolute',
                     top: '110%',
                     left: 0,
-                    width: '50vw', // Adjust size for responsiveness
+                    width: '50vw', 
                     height: '50vh',
                     borderRadius: '20%',
                     background: 'linear-gradient(to top, black, rgb(190, 18, 60))',

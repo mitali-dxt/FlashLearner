@@ -11,7 +11,7 @@ const HeroSection = () => {
     if (!user) {
       router.push('/sign-in'); // Redirect to sign-in page if user is not authenticated
     } else {
-      router.push(path); // Otherwise, proceed with the original path
+      router.push(path); 
     }
   };
 
@@ -20,7 +20,7 @@ const HeroSection = () => {
       sx={{ 
         bgcolor: 'black', 
         color: 'white', 
-        py: { xs: 4, md: 8 }, // Adjust padding for responsiveness
+        py: { xs: 4, md: 8 }, 
         textAlign: 'center' 
       }}
     >
@@ -38,7 +38,7 @@ const HeroSection = () => {
             variant="h3"
             sx={{
               fontWeight: 'bold',
-              fontSize: { xs: '1.5rem', md: '4.5rem' }, // Adjust font size for responsiveness
+              fontSize: { xs: '1.5rem', md: '4.5rem' },
               textAlign: 'center'
             }}
           >
@@ -60,14 +60,14 @@ const HeroSection = () => {
         </Box>
 
         {/* Subheader Text */}
-        <Box sx={{ maxWidth: '600px', mx: 'auto', px: { xs: 2, md: 0 } }}> {/* Adjust padding for mobile */}
+        <Box sx={{ maxWidth: '600px', mx: 'auto', px: { xs: 2, md: 0 } }}> 
           <Typography 
-            variant="h6" // Updated to h6 for smaller screens
+            variant="h6" 
             sx={{ 
               textAlign: 'center',
-              fontSize: { xs: '0.875rem', md: '1rem' }, // Adjust font size for responsiveness
+              fontSize: { xs: '0.875rem', md: '1rem' }, 
               fontStyle: 'italic',
-              lineHeight: { xs: '1.2rem', md: '1.8rem' } // Adjust line height for responsiveness
+              lineHeight: { xs: '1.2rem', md: '1.8rem' } 
             }}
           >
             Meet FlashLearner, the new standard for learning. Fun, fast and ads
@@ -78,11 +78,11 @@ const HeroSection = () => {
         {/* Buttons Container */}
         <Box 
           sx={{ 
-            mt: { xs: 2, md: 4 }, // Adjust margin top for responsiveness
+            mt: { xs: 2, md: 4 }, 
             display: 'flex', 
-            flexDirection: { xs: 'column', md: 'row' }, // Stack buttons vertically on mobile
+            flexDirection: { xs: 'column', md: 'row' }, 
             justifyContent: 'center', 
-            gap: 2 // Add space between the buttons
+            gap: 2
           }}
         >
           <Button 
@@ -93,7 +93,7 @@ const HeroSection = () => {
               '&:hover': {
                 bgcolor: 'rgb(160, 16, 50)',
               },
-              mb: { xs: 1, md: 0 } // Add margin bottom for mobile
+              mb: { xs: 1, md: 0 } 
             }}
             onClick={() => handleButtonClick('/generate')}
           >

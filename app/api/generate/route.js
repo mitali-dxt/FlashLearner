@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { Groq } from "groq-sdk"; // Ensure you have the correct import path
 
-const systemPrompt = `You are a flashcard creator. You take in text and create multiple flashcards from it. Make sure to create exactly 10 flashcards. Both front and back should be one sentence long. You should return in the following JSON format:
+const systemPrompt = `You are a flashcard creator. You take in text and create multiple flashcards from it. Make sure to create exactly 9 flashcards.The front should have a question. Both front and back should be one sentence long. You should return in the following JSON format:
 {
   "flashcards":[
     {

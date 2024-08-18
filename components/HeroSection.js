@@ -9,7 +9,7 @@ const HeroSection = () => {
 
   const handleButtonClick = (path) => {
     if (!user) {
-      router.push('/sign-in'); // Redirect to sign-up page if user is not authenticated
+      router.push('/sign-in'); // Redirect to sign-in page if user is not authenticated
     } else {
       router.push(path); // Otherwise, proceed with the original path
     }
@@ -20,7 +20,7 @@ const HeroSection = () => {
       sx={{ 
         bgcolor: 'black', 
         color: 'white', 
-        py: 8, 
+        py: { xs: 4, md: 8 }, // Adjust padding for responsiveness
         textAlign: 'center' 
       }}
     >
@@ -28,7 +28,7 @@ const HeroSection = () => {
         {/* Main Header Text */}
         <Box 
           sx={{ 
-            mb: 4,
+            mb: { xs: 2, md: 4 },
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center'
@@ -38,7 +38,7 @@ const HeroSection = () => {
             variant="h3"
             sx={{
               fontWeight: 'bold',
-              fontSize: { xs: '2rem', md: '4.5rem' }, // Adjust font size for responsiveness
+              fontSize: { xs: '1.5rem', md: '4.5rem' }, // Adjust font size for responsiveness
               textAlign: 'center'
             }}
           >
@@ -49,7 +49,7 @@ const HeroSection = () => {
               sx={{ 
                 fontWeight: 'bold',
                 color: 'rgb(190, 18, 60)', 
-                fontSize: { xs: '2rem', md: '4.5rem' } 
+                fontSize: { xs: '1.5rem', md: '4.5rem' } 
               }}
             >
               learning
@@ -59,15 +59,15 @@ const HeroSection = () => {
           </Typography>
         </Box>
 
-         {/* Subheader Text */}
-         <Box sx={{ maxWidth: '600px', mx: 'auto' }}> {/* Control the width of the subheader */}
+        {/* Subheader Text */}
+        <Box sx={{ maxWidth: '600px', mx: 'auto', px: { xs: 2, md: 0 } }}> {/* Adjust padding for mobile */}
           <Typography 
-            variant="h7"
+            variant="h6" // Updated to h6 for smaller screens
             sx={{ 
               textAlign: 'center',
-              fontSize: { xs: 'sm', md: 'md' },
+              fontSize: { xs: '0.875rem', md: '1rem' }, // Adjust font size for responsiveness
               fontStyle: 'italic',
-              lineHeight: { xs: '1rem', md: '2rem' } // Smaller size for the subheader
+              lineHeight: { xs: '1.2rem', md: '1.8rem' } // Adjust line height for responsiveness
             }}
           >
             Meet FlashLearner, the new standard for learning. Fun, fast and ads
@@ -75,11 +75,12 @@ const HeroSection = () => {
           </Typography>
         </Box>
 
-         {/* Buttons Container */}
-         <Box 
+        {/* Buttons Container */}
+        <Box 
           sx={{ 
-            mt: 4, 
+            mt: { xs: 2, md: 4 }, // Adjust margin top for responsiveness
             display: 'flex', 
+            flexDirection: { xs: 'column', md: 'row' }, // Stack buttons vertically on mobile
             justifyContent: 'center', 
             gap: 2 // Add space between the buttons
           }}
@@ -92,6 +93,7 @@ const HeroSection = () => {
               '&:hover': {
                 bgcolor: 'rgb(160, 16, 50)',
               },
+              mb: { xs: 1, md: 0 } // Add margin bottom for mobile
             }}
             onClick={() => handleButtonClick('/generate')}
           >
@@ -113,7 +115,6 @@ const HeroSection = () => {
           </Button>
         </Box>
       </Container>
-      
     </Box>
   );
 };

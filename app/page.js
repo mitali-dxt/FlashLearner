@@ -9,22 +9,22 @@ import { Container, Typography, Box } from "@mui/material";
 import Head from "next/head";
 import { useUser } from '@clerk/nextjs';
 
-
 export default function Home() {
     const { user } = useUser(); // Get user context if needed
 
     return (
-        <Container maxWidth="80vw" >
+        <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <Head>
                 <title>FlashCard Saas</title>
                 <meta name="description" content="Create FlashCards from your text" />
             </Head>
             <Navbar />
-            <HeroSection />
-            <Features />
-             {/* Conditionally render the flashcard section only if the user is logged in */}
-             {user && (
-                    <>
+            <Box sx={{ flexGrow: 1 }}>
+                <HeroSection />
+                <Features />
+                {/* Conditionally render the flashcard section only if the user is logged in */}
+                {user && (
+                    <Box sx={{ flexGrow: 1 }}>
                         <Box sx={{ textAlign: 'center', mt: 4, mb: 4 }}>
                             <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 600 }}>
                                 Your Flashcard Sets
@@ -35,55 +35,56 @@ export default function Home() {
                         </Box>
                         {/* Conditionally render FlashcardDisplay if user exists */}
                         <FlashcardDisplay user={user} />
-                    </>
+                    </Box>
                 )}
+            </Box>
+            <Footer />
+            {/* Decorative Background Elements */}
             <Box
                 sx={{
                     position: 'absolute',
                     top: 0,
                     left: 0,
-                    width: '500px',
-                    height: '500px',
+                    width: '50vw', // Adjust size for responsiveness
+                    height: '50vh',
                     borderRadius: '20%',
                     background: 'linear-gradient(to top, black, rgb(190, 18, 60))',
                     boxShadow: 3,
-                    zIndex: 0, // Ensure it is behind other content
-                    filter: 'blur(70px)', // Apply blur effect
-                    opacity: 0.1, // Adjust opacity for the glass effect
+                    zIndex: 0,
+                    filter: 'blur(70px)',
+                    opacity: 0.1,
                 }}
             />
-            {/* Blue structure in the bottom right corner */}
             <Box
                 sx={{
                     position: 'absolute',
                     bottom: 0,
                     right: 0,
-                    width: '500px',
-                    height: '500px',
+                    width: '50vw', // Adjust size for responsiveness
+                    height: '50vh',
                     borderRadius: '20%',
                     background: 'linear-gradient(to top, black, rgb(190, 18, 60))',
                     boxShadow: 3,
-                    zIndex: 0, // Ensure it is behind other content
-                    filter: 'blur(70px)', // Apply blur effect
-                    opacity: 0.1, // Adjust opacity for the glass effect
+                    zIndex: 0,
+                    filter: 'blur(70px)',
+                    opacity: 0.1,
                 }}
             />
-             <Box
+            <Box
                 sx={{
                     position: 'absolute',
                     top: '110%',
                     left: 0,
-                    width: '500px',
-                    height: '500px',
+                    width: '50vw', // Adjust size for responsiveness
+                    height: '50vh',
                     borderRadius: '20%',
                     background: 'linear-gradient(to top, black, rgb(190, 18, 60))',
                     boxShadow: 3,
-                    zIndex: 0, // Ensure it is behind other content
-                    filter: 'blur(70px)', // Apply blur effect
-                    opacity: 0.1, // Adjust opacity for the glass effect
+                    zIndex: 0,
+                    filter: 'blur(70px)',
+                    opacity: 0.1,
                 }}
             />
-            <Footer/>
-        </Container>
+        </Box>
     );
 }

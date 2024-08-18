@@ -65,8 +65,15 @@ const HeroSection = () => {
           </Typography>
         </Box>
 
-        {/* Get Started Button */}
-        <Box sx={{ mt: 4 }}>
+         {/* Buttons Container */}
+         <Box 
+          sx={{ 
+            mt: 4, 
+            display: 'flex', 
+            justifyContent: 'center', 
+            gap: 2 // Add space between the buttons
+          }}
+        >
           <Button 
             variant="contained" 
             sx={{
@@ -78,7 +85,21 @@ const HeroSection = () => {
             }}
             onClick={() => router.push('/generate')}
           >
-            Get Started
+            Try AI Generate
+          </Button>
+          <Button 
+            variant="outlined" 
+            sx={{
+              color: 'rgb(190, 18, 60)',
+              borderColor: 'rgb(190, 18, 60)',
+              '&:hover': {
+                bgcolor: 'rgba(190, 18, 60, 0.1)',
+                borderColor: 'rgb(160, 16, 50)',
+              },
+            }}
+            onClick={() => router.push('/manual/flashcards')}
+          >
+            Create Flashcards Manually
           </Button>
         </Box>
       </Container>

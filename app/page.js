@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 import Features from '../components/Features';
 import HeroSection from '../components/HeroSection';
 import FlashcardDisplay from '../components/FlashcardDisplay';
-import Footer from '@/components/Footer';
+import Footer from '../components/Footer';
 import { Container, Typography, Box } from "@mui/material";
 import Head from "next/head";
 import { useUser } from '@clerk/nextjs';
@@ -22,17 +22,21 @@ export default function Home() {
             <Navbar />
             <HeroSection />
             <Features />
-            {/* Add a heading for the flashcards section */}
-            <Box sx={{ textAlign: 'center', mt: 4, mb: 4 }}>
-                <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 600 }}>
-                    Your Flashcard Sets
-                </Typography>
-                <Typography variant="body1" sx={{ color: 'text.secondary', mb: 4 }}>
-                    Here are the flashcard sets you have created. Click on a card to view details.
-                </Typography>
-            </Box>
-            {/* Conditionally render FlashcardDisplay if user exists */}
-            {user && <FlashcardDisplay user={user} />}
+             {/* Conditionally render the flashcard section only if the user is logged in */}
+             {user && (
+                    <>
+                        <Box sx={{ textAlign: 'center', mt: 4, mb: 4 }}>
+                            <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 600 }}>
+                                Your Flashcard Sets
+                            </Typography>
+                            <Typography variant="body1" sx={{ color: 'text.secondary', mb: 4 }}>
+                                Here are the flashcard sets you have created. Click on a card to view details.
+                            </Typography>
+                        </Box>
+                        {/* Conditionally render FlashcardDisplay if user exists */}
+                        <FlashcardDisplay user={user} />
+                    </>
+                )}
             <Box
                 sx={{
                     position: 'absolute',
@@ -64,8 +68,7 @@ export default function Home() {
                     opacity: 0.2, // Adjust opacity for the glass effect
                 }}
             />
-            <Footer />
-            
+            <Footer/>
         </Container>
     );
 }

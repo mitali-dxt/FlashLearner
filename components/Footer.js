@@ -7,8 +7,8 @@ const Footer = () => {
         bgcolor: 'black',
         color: 'white',
         py: 6,
-        mt: 8,
         borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+        
       }}
     >
       <Container maxWidth="lg">

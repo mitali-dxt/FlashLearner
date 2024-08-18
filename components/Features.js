@@ -2,7 +2,7 @@ import { Box, Grid, Typography } from "@mui/material";
 
 export default function Features() {
   return (
-    <Box sx={{ my: 15 }}>
+    <Box sx={{ my: 10}} height="100vh">
       <Typography variant="h4" component="h2" gutterBottom textAlign="center" mb="50px" sx={{ color: 'white' }}>
         Features
       </Typography>

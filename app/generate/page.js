@@ -72,92 +72,86 @@ export default function Generate() {
 
   return (
     <Container maxWidth="md" sx={{ mt: 4 }}>
-      <Box
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        backgroundColor: 'transparent', // Grey background for the section
+        padding: 4,
+        borderRadius: 3,
+      }}
+    >
+      <Paper
+        elevation={3}
         sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          backgroundColor: 'transparent',
           padding: 4,
-          borderRadius: 3,
+          backgroundColor: 'rgba(255, 255, 255, 0.1)', // White background for the paper
+          borderRadius: 2,
+          width: '100%',
+          maxWidth: '400px',
+          height:'300px',
+           // Adjust the width to control the size
+          textAlign: 'center',
         }}
       >
-        <Paper
-          elevation={3}
+        <Typography
+          variant="h4"
+          component="h1"
+          gutterBottom
+          sx={{ color: 'white', fontWeight: 600 }} // Darker text color for better readability
+        >
+          Generate Flashcards
+        </Typography>
+        <Typography
+          variant="body1"
+          sx={{ color: 'grey', mb: 6 , mt: 4}} // Slightly lighter text color
+        >
+          Enter your text below. Each line will be used to generate a flashcard.
+        </Typography>
+        <Box
           sx={{
-            padding: 3,
-            backgroundColor: 'transparent',
-            borderRadius: 2,
-            width: '100%',
-            textAlign: 'center',
+            width: '80%', // Reduce the width of the input box
+            margin: '0 auto',
+            
           }}
         >
-          <Typography
-            variant="h4"
-            component="h1"
-            gutterBottom
-            sx={{ color: 'white', fontWeight: 600 }}
-          >
-            Generate Flashcards
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{ color: '#fff', mb: 2 }}
-          >
-            Enter your text below. Each line will be used to generate a flashcard.
-          </Typography>
-          <Box
-            sx={{
-              width: '80%', // Reduce the width of the input box
-              margin: '0 auto',
-            }}
-          >
-            <TextField
-              value={text}
-              onChange={(e) => setText(e.target.value)}
-              label="Enter text"
-              fullWidth
-              multiline
-              rows={1}
-              variant="outlined"
-              sx={{
-                mb: 2,
-                backgroundColor: '#fff',
-                borderRadius: 2,
-                '& .MuiOutlinedInput-root': {
-                  '& fieldset': {
-                    borderColor: 'rgb(190, 18, 60)',
-                  },
-                  '&:hover fieldset': {
-                    borderColor: 'rgba(190, 18, 60, 0.8)',
-                  },
-                  '&.Mui-focused fieldset': {
-                    borderColor: 'rgb(190, 18, 60)',
-                  },
-                },
-              }}
-            />
-          </Box>
-          <Button
-            variant="contained"
-            sx={{
-              backgroundColor: 'rgb(190, 18, 60)',
-              color: '#fff',
-              fontWeight: 600,
-              width: 'auto',
-              '&:hover': {
-                backgroundColor: 'rgba(190, 18, 60, 0.9)',
-              },
-              mb: 2, // Add margin bottom for spacing
-            }}
-            onClick={handleSubmit}
+          <TextField
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            label="Enter text"
             fullWidth
-          >
-            Generate Flashcards
-          </Button>
-        </Paper>
-      </Box>
-  
+            multiline
+            rows={1}
+            variant="outlined"
+            sx={{
+              mb: 2,
+              backgroundColor: '#fff',
+              borderRadius: 2,
+            }}
+          />
+        </Box>
+        <Button
+          variant="contained"
+          sx={{
+            backgroundColor: 'rgb(190, 18, 60)',
+            color: '#fff',
+            fontWeight: 600,
+            width: 'auto',
+            '&:hover': {
+              backgroundColor: 'rgba(190, 18, 60, 0.9)',
+            },
+            mt:2,
+            mb: 2, // Add margin bottom for spacing
+          }}
+          onClick={handleSubmit}
+          fullWidth
+        >
+          Generate Flashcards
+        </Button>
+      </Paper>
+    </Box>
+
       {flashcards.length > 0 && (
         <>
           <Box sx={{ mt: 4 }}>

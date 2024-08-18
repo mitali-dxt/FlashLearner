@@ -1,9 +1,19 @@
 'use client';
 import { Box, Typography, Button, Container } from '@mui/material';
 import { useRouter } from 'next/navigation';
+import { useUser } from '@clerk/nextjs';
 
 const HeroSection = () => {
   const router = useRouter();
+  const { user } = useUser();
+
+  const handleButtonClick = (path) => {
+    if (!user) {
+      router.push('/sign-in'); // Redirect to sign-up page if user is not authenticated
+    } else {
+      router.push(path); // Otherwise, proceed with the original path
+    }
+  };
 
   return (
     <Box 
@@ -83,9 +93,9 @@ const HeroSection = () => {
                 bgcolor: 'rgb(160, 16, 50)',
               },
             }}
-            onClick={() => router.push('/generate')}
+            onClick={() => handleButtonClick('/generate')}
           >
-            Try AI Generate
+            Try AI Generate 🪄
           </Button>
           <Button 
             variant="outlined" 
@@ -97,7 +107,7 @@ const HeroSection = () => {
                 borderColor: 'rgb(160, 16, 50)',
               },
             }}
-            onClick={() => router.push('/manual/flashcards')}
+            onClick={() => handleButtonClick('/manual/flashcards')}
           >
             Create Flashcards Manually
           </Button>

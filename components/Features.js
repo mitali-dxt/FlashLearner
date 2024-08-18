@@ -81,7 +81,7 @@ export default function Features() {
               </Typography>
             </Box>
             <Typography sx={{ color: 'white', paddingLeft: 2, paddingRight: 2 }}>
-              Tailor your flashcards with custom fonts, colors, and themes to fit your learning style.
+              Tailor your flashcards with customizable question and answers to suit your learning needs.
             </Typography>
           </Box>
         </Grid>
@@ -125,21 +125,7 @@ export default function Features() {
           </Box>
         </Grid>
       </Grid>
-      <Box
-                sx={{
-                    position: 'absolute',
-                    top: '150%',
-                    left: 0,
-                    width: '500px',
-                    height: '500px',
-                    borderRadius: '20%',
-                    background: 'linear-gradient(to top, black, rgb(190, 18, 60))',
-                    boxShadow: 3,
-                    zIndex: -1, // Ensure it is behind other content
-                    filter: 'blur(70px)', // Apply blur effect
-                    opacity: 0.2, // Adjust opacity for the glass effect
-                }}
-            />
+      
     </Box>
   );
 }

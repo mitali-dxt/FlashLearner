@@ -49,7 +49,7 @@ export default function Home() {
                     boxShadow: 3,
                     zIndex: 0, // Ensure it is behind other content
                     filter: 'blur(70px)', // Apply blur effect
-                    opacity: 0.2, // Adjust opacity for the glass effect
+                    opacity: 0.1, // Adjust opacity for the glass effect
                 }}
             />
             {/* Blue structure in the bottom right corner */}
@@ -65,7 +65,22 @@ export default function Home() {
                     boxShadow: 3,
                     zIndex: 0, // Ensure it is behind other content
                     filter: 'blur(70px)', // Apply blur effect
-                    opacity: 0.2, // Adjust opacity for the glass effect
+                    opacity: 0.1, // Adjust opacity for the glass effect
+                }}
+            />
+             <Box
+                sx={{
+                    position: 'absolute',
+                    top: '110%',
+                    left: 0,
+                    width: '500px',
+                    height: '500px',
+                    borderRadius: '20%',
+                    background: 'linear-gradient(to top, black, rgb(190, 18, 60))',
+                    boxShadow: 3,
+                    zIndex: 0, // Ensure it is behind other content
+                    filter: 'blur(70px)', // Apply blur effect
+                    opacity: 0.1, // Adjust opacity for the glass effect
                 }}
             />
             <Footer/>

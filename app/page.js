@@ -12,7 +12,7 @@ export default function Home() {
     const { user } = useUser(); // Get user context if needed
 
     return (
-        <Container maxWidth="100vw" >
+        <Container maxWidth="80vw" >
             <Head>
                 <title>FlashCard Saas</title>
                 <meta name="description" content="Create FlashCards from your text" />
@@ -31,6 +31,38 @@ export default function Home() {
             </Box>
             {/* Conditionally render FlashcardDisplay if user exists */}
             {user && <FlashcardDisplay user={user} />}
+            <Box
+                sx={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '500px',
+                    height: '500px',
+                    borderRadius: '20%',
+                    background: 'linear-gradient(to top, black, rgb(190, 18, 60))',
+                    boxShadow: 3,
+                    zIndex: 0, // Ensure it is behind other content
+                    filter: 'blur(70px)', // Apply blur effect
+                    opacity: 0.2, // Adjust opacity for the glass effect
+                }}
+            />
+            {/* Blue structure in the bottom right corner */}
+            <Box
+                sx={{
+                    position: 'absolute',
+                    bottom: 0,
+                    right: 0,
+                    width: '500px',
+                    height: '500px',
+                    borderRadius: '20%',
+                    background: 'linear-gradient(to top, black, rgb(190, 18, 60))',
+                    boxShadow: 3,
+                    zIndex: 0, // Ensure it is behind other content
+                    filter: 'blur(70px)', // Apply blur effect
+                    opacity: 0.2, // Adjust opacity for the glass effect
+                }}
+            />
+            
         </Container>
     );
 }

@@ -2,12 +2,13 @@ import { Box, Grid, Typography } from "@mui/material";
 
 export default function Features() {
   return (
-    <Box sx={{ my: 10, textAlign: 'center' }}>
-      <Typography variant="h4" component="h2" gutterBottom mb="50px" sx={{ color: 'white' }}>
+    <Box sx={{ my: 10, textAlign: 'center', maxWidth: '1200px', mx: 'auto' }}>
+      <Typography variant="h4" component="h2" gutterBottom mb="20px" sx={{ color: 'white' }}>
         Features
       </Typography>
+      
       <Grid container spacing={4} justifyContent="center" padding={6}>
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <Box
             sx={{
               bgcolor: 'rgba(255, 255, 255, 0.1)',
@@ -19,29 +20,34 @@ export default function Features() {
               transition: 'all 0.2s',
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'center', // Center items horizontally
-              textAlign: 'center',
+              alignItems: 'flex-start',
+              textAlign: 'left',
               height: '100%',
-              minHeight: '200px',
+              minHeight: '250px',
+              width: '100%', // Full width of grid item
+              mx: 'auto',
+              boxSizing: 'border-box',
               '&:hover': {
                 boxShadow: '0 8px 40px rgba(0, 0, 0, 0.2)',
                 transform: 'scale(1.05)',
               },
             }}
           >
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', mb: 2, paddingLeft: 2 }}>
               <img src="icon.png" alt="icon" style={{ marginRight: 8, width: 24, height: 24 }} />
+            </Box>
+            <Box sx={{  mb: 2, paddingLeft: 2 }}>
               <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: 'white' }}>
                 Easy Text Input
               </Typography>
             </Box>
-            <Typography sx={{ color: 'white' }}>
+            <Typography sx={{ color: 'white', paddingLeft: 2, paddingRight: 2 }}>
               Simply input your text and we will generate flashcards for you. Creating flashcards has never been easier.
             </Typography>
           </Box>
         </Grid>
 
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <Box
             sx={{
               bgcolor: 'rgba(255, 255, 255, 0.1)',
@@ -53,29 +59,34 @@ export default function Features() {
               transition: 'all 0.2s',
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'center', // Center items horizontally
-              textAlign: 'center',
+              alignItems: 'flex-start',
+              textAlign: 'left',
               height: '100%',
-              minHeight: '200px',
+              minHeight: '250px',
+              width: '100%', // Full width of grid item
+              mx: 'auto',
+              boxSizing: 'border-box',
               '&:hover': {
                 boxShadow: '0 8px 40px rgba(0, 0, 0, 0.2)',
                 transform: 'scale(1.05)',
               },
             }}
           >
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', mb: 2, paddingLeft: 2 }}>
               <img src="icon.png" alt="icon" style={{ marginRight: 8, width: 24, height: 24 }} />
+            </Box>
+            <Box sx={{  mb: 2, paddingLeft: 2 }}>
               <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: 'white' }}>
                 Customizable Options
               </Typography>
             </Box>
-            <Typography sx={{ color: 'white' }}>
+            <Typography sx={{ color: 'white', paddingLeft: 2, paddingRight: 2 }}>
               Tailor your flashcards with custom fonts, colors, and themes to fit your learning style.
             </Typography>
           </Box>
         </Grid>
 
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <Box
             sx={{
               bgcolor: 'rgba(255, 255, 255, 0.1)',
@@ -87,28 +98,48 @@ export default function Features() {
               transition: 'all 0.2s',
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'center', // Center items horizontally
-              textAlign: 'center',
+              alignItems: 'flex-start',
+              textAlign: 'left',
               height: '100%',
-              minHeight: '200px',
+              minHeight: '250px',
+              width: '100%', // Full width of grid item
+              mx: 'auto',
+              boxSizing: 'border-box',
               '&:hover': {
                 boxShadow: '0 8px 40px rgba(0, 0, 0, 0.2)',
                 transform: 'scale(1.05)',
               },
             }}
           >
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', mb: 2, paddingLeft: 2 }}>
               <img src="icon.png" alt="icon" style={{ marginRight: 8, width: 24, height: 24 }} />
+            </Box>
+            <Box sx={{  mb: 2, paddingLeft: 2 }}>
               <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: 'white' }}>
                 Accessible Anywhere
               </Typography>
             </Box>
-            <Typography sx={{ color: 'white' }}>
+            <Typography sx={{ color: 'white', paddingLeft: 2, paddingRight: 2 }}>
               Access your flashcards on any device and continue your learning wherever you are.
             </Typography>
           </Box>
         </Grid>
       </Grid>
+      <Box
+                sx={{
+                    position: 'absolute',
+                    top: '150%',
+                    left: 0,
+                    width: '500px',
+                    height: '500px',
+                    borderRadius: '20%',
+                    background: 'linear-gradient(to top, black, rgb(190, 18, 60))',
+                    boxShadow: 3,
+                    zIndex: -1, // Ensure it is behind other content
+                    filter: 'blur(70px)', // Apply blur effect
+                    opacity: 0.2, // Adjust opacity for the glass effect
+                }}
+            />
     </Box>
   );
 }

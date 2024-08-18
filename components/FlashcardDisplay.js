@@ -27,11 +27,11 @@ export default function FlashcardDisplay({ user }) {
     const handleCardClick = (id) => {
         router.push(`/flashcard?id=${id}`);
     };
-
-    return (
-        <Grid container spacing={3}>
+return (
+    <Box sx={{maxWidth: '1200px', mx: 'auto'}}>
+    <Grid container spacing={3} justifyContent="center" height="50vh">
             {flashcards.map((flashcard, index) => (
-                <Grid item xs={12} sm={6} md={4} key={index}>
+                <Grid item xs={12} sm={6} md={3} key={index}>
                     <Card
                         sx={{
                             borderRadius: 2,
@@ -40,16 +40,20 @@ export default function FlashcardDisplay({ user }) {
                             '&:hover': {
                                 boxShadow: '0 6px 12px rgba(0, 0, 0, 0.2)',
                             },
+                            maxWidth: 300, // Adjust the maximum width of the cards
+                            mx: 'auto', // Center the card horizontally
                         }}
                     >
                         <CardActionArea onClick={() => handleCardClick(flashcard.name)}>
                             <CardContent
                                 sx={{
                                     display: 'flex',
+                                    flexDirection: 'column',
                                     alignItems: 'center',
                                     justifyContent: 'center',
-                                    height: '100px', // Adjust the height as needed
-                                    backgroundColor: '#f5f5f5', // Light background color for better contrast
+                                    height: '100px',
+                                    backgroundColor: '#f5f5f5',
+                                    p: 2, // Add padding inside the card
                                 }}
                             >
                                 <Typography variant="h6" sx={{ color: '#000', fontWeight: 500 }}>
@@ -61,5 +65,6 @@ export default function FlashcardDisplay({ user }) {
                 </Grid>
             ))}
         </Grid>
+        </Box>
     );
 }

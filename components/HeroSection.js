@@ -9,9 +9,9 @@ const HeroSection = () => {
 
   const handleButtonClick = (path) => {
     if (!user) {
-      router.push('/sign-in'); // Redirect to sign-in page if user is not authenticated
+      router.push('/sign-in'); // Redirect to sign-up page if user is not authenticated
     } else {
-      router.push(path); 
+      router.push(path); // Otherwise, proceed with the original path
     }
   };
 
@@ -20,7 +20,7 @@ const HeroSection = () => {
       sx={{ 
         bgcolor: 'black', 
         color: 'white', 
-        py: { xs: 4, md: 8 }, 
+        py: 8, 
         textAlign: 'center' 
       }}
     >
@@ -28,7 +28,7 @@ const HeroSection = () => {
         {/* Main Header Text */}
         <Box 
           sx={{ 
-            mb: { xs: 2, md: 4 },
+            mb: 4,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center'
@@ -38,7 +38,7 @@ const HeroSection = () => {
             variant="h3"
             sx={{
               fontWeight: 'bold',
-              fontSize: { xs: '1.5rem', md: '4.5rem' },
+              fontSize: { xs: '2rem', md: '4.5rem' }, // Adjust font size for responsiveness
               textAlign: 'center'
             }}
           >
@@ -49,7 +49,7 @@ const HeroSection = () => {
               sx={{ 
                 fontWeight: 'bold',
                 color: 'rgb(190, 18, 60)', 
-                fontSize: { xs: '1.5rem', md: '4.5rem' } 
+                fontSize: { xs: '2rem', md: '4.5rem' } 
               }}
             >
               learning
@@ -59,15 +59,15 @@ const HeroSection = () => {
           </Typography>
         </Box>
 
-        {/* Subheader Text */}
-        <Box sx={{ maxWidth: '600px', mx: 'auto', px: { xs: 2, md: 0 } }}> 
+         {/* Subheader Text */}
+         <Box sx={{ maxWidth: '600px', mx: 'auto' }}> {/* Control the width of the subheader */}
           <Typography 
-            variant="h6" 
+            variant="h7"
             sx={{ 
               textAlign: 'center',
-              fontSize: { xs: '0.875rem', md: '1rem' }, 
+              fontSize: { xs: 'sm', md: 'md' },
               fontStyle: 'italic',
-              lineHeight: { xs: '1.2rem', md: '1.8rem' } 
+              lineHeight: { xs: '1rem', md: '2rem' } // Smaller size for the subheader
             }}
           >
             Meet FlashLearner, the new standard for learning. Fun, fast and ads
@@ -75,14 +75,13 @@ const HeroSection = () => {
           </Typography>
         </Box>
 
-        {/* Buttons Container */}
-        <Box 
+         {/* Buttons Container */}
+         <Box 
           sx={{ 
-            mt: { xs: 2, md: 4 }, 
+            mt: 4, 
             display: 'flex', 
-            flexDirection: { xs: 'column', md: 'row' }, 
             justifyContent: 'center', 
-            gap: 2
+            gap: 2 // Add space between the buttons
           }}
         >
           <Button 
@@ -93,28 +92,28 @@ const HeroSection = () => {
               '&:hover': {
                 bgcolor: 'rgb(160, 16, 50)',
               },
-              mb: { xs: 1, md: 0 } 
             }}
             onClick={() => handleButtonClick('/generate')}
           >
             Try AI Generate 🪄
           </Button>
           <Button 
-            variant="outlined" 
-            sx={{
-              color: 'rgb(190, 18, 60)',
-              borderColor: 'rgb(190, 18, 60)',
-              '&:hover': {
-                bgcolor: 'rgba(190, 18, 60, 0.1)',
-                borderColor: 'rgb(160, 16, 50)',
-              },
-            }}
-            onClick={() => handleButtonClick('/manual/flashcards')}
-          >
-            Create Flashcards Manually
-          </Button>
+  variant="outlined" 
+  sx={{
+    color: 'rgb(190, 18, 60)',
+    borderColor: 'rgb(190, 18, 60)',
+    '&:hover': {
+      bgcolor: 'rgba(190, 18, 60, 0.1)',
+      borderColor: 'rgb(160, 16, 50)',
+    },
+  }}
+  onClick={() => handleButtonClick('/manual/flashcards')}
+>
+  Create Flashcards Manually
+</Button>
         </Box>
       </Container>
+      
     </Box>
   );
 };

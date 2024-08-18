@@ -65,7 +65,7 @@ export default function Home() {
                     borderRadius: '20%',
                     background: 'linear-gradient(to top, black, rgb(190, 18, 60))',
                     boxShadow: 3,
-                    zIndex: 0,
+                    zIndex: -1,
                     filter: 'blur(70px)',
                     opacity: 0.1,
                 }}
